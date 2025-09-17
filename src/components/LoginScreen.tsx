@@ -25,57 +25,61 @@ export function LoginScreen({ onSwitchToSignUp, onNavigateToHelp }: LoginScreenP
   }
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col">
-      {/* Premium Grid Background */}
-      <div className="absolute inset-0">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <pattern id="grid" width="2" height="2" patternUnits="userSpaceOnUse">
-              <path d="M 2 0 L 0 0 0 2" fill="none" stroke="#404040" strokeWidth="0.15" opacity="0.8"/>
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
+    <div className="min-h-screen bg-black relative overflow-hidden flex flex-col" style={{ minHeight: '100vh', height: '100%' }}>
+      {/* Fixed Background - Covers entire viewport and beyond */}
+      <div className="fixed inset-0 w-full h-full" style={{ top: '-10vh', left: '-10vw', right: '-10vw', bottom: '-10vh', width: '120vw', height: '120vh' }}>
+        <div className="w-full h-full bg-black">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="2" height="2" patternUnits="userSpaceOnUse">
+                <path d="M 2 0 L 0 0 0 2" fill="none" stroke="#404040" strokeWidth="0.15" opacity="0.8"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+          </svg>
+        </div>
       </div>
 
-      {/* Diamond Pattern Overlay */}
-      <div className="absolute inset-0">
-        <svg className="w-full h-full" viewBox="0 0 1600 1200">
-          {Array.from({ length: 80 }).map((_, i) => {
-            const x = (i % 16) * 100
-            const y = Math.floor(i / 16) * 240
-            const offset = (Math.floor(i / 16) % 2) * 50
-            return (
-              <g key={i} opacity="0.25">
-                <path
-                  d={`M${x + offset},${y} L${x + 50 + offset},${y + 60} L${x + 100 + offset},${y} L${x + 50 + offset},${y - 60} Z`}
-                  fill="none"
-                  stroke="#525252"
-                  strokeWidth="0.8"
-                />
-                <circle
-                  cx={x + 50 + offset}
-                  cy={y}
-                  r="2"
-                  fill="#737373"
-                  opacity="0.6"
-                />
-                <path
-                  d={`M${x + 25 + offset},${y + 30} L${x + 75 + offset},${y + 30}`}
-                  stroke="#525252"
-                  strokeWidth="0.4"
-                  opacity="0.7"
-                />
-                <path
-                  d={`M${x + 25 + offset},${y - 30} L${x + 75 + offset},${y - 30}`}
-                  stroke="#525252"
-                  strokeWidth="0.4"
-                  opacity="0.7"
-                />
-              </g>
-            )
-          })}
-        </svg>
+      {/* Fixed Diamond Pattern Overlay */}
+      <div className="fixed inset-0 w-full h-full" style={{ top: '-10vh', left: '-10vw', right: '-10vw', bottom: '-10vh', width: '120vw', height: '120vh' }}>
+        <div className="w-full h-full bg-black">
+          <svg className="w-full h-full" viewBox="0 0 1600 1200">
+            {Array.from({ length: 120 }).map((_, i) => {
+              const x = (i % 20) * 100
+              const y = Math.floor(i / 20) * 240
+              const offset = (Math.floor(i / 20) % 2) * 50
+              return (
+                <g key={i} opacity="0.25">
+                  <path
+                    d={`M${x + offset},${y} L${x + 50 + offset},${y + 60} L${x + 100 + offset},${y} L${x + 50 + offset},${y - 60} Z`}
+                    fill="none"
+                    stroke="#525252"
+                    strokeWidth="0.8"
+                  />
+                  <circle
+                    cx={x + 50 + offset}
+                    cy={y}
+                    r="2"
+                    fill="#737373"
+                    opacity="0.6"
+                  />
+                  <path
+                    d={`M${x + 25 + offset},${y + 30} L${x + 75 + offset},${y + 30}`}
+                    stroke="#525252"
+                    strokeWidth="0.4"
+                    opacity="0.7"
+                  />
+                  <path
+                    d={`M${x + 25 + offset},${y - 30} L${x + 75 + offset},${y - 30}`}
+                    stroke="#525252"
+                    strokeWidth="0.4"
+                    opacity="0.7"
+                  />
+                </g>
+              )
+            })}
+          </svg>
+        </div>
       </div>
 
       {/* Header */}
