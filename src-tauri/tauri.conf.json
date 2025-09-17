@@ -43,6 +43,10 @@
     "category": "Finance",
     "shortDescription": "Professional Financial Terminal",
     "longDescription": "FinceptTerminal is a professional financial terminal application providing secure access to market data and trading services.",
+    "macOS": {
+      "signingIdentity": null,
+      "entitlements": null
+    },
     "windows": {
       "certificateThumbprint": null,
       "digestAlgorithm": "sha256",
