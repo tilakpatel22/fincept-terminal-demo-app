@@ -30,7 +30,6 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "identifier": "com.fincept.terminal",
     "resources": [],
     "externalBin": [],
     "copyright": "© 2025 FinceptTerminal LP All rights reserved.",
