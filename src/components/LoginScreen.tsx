@@ -5,9 +5,10 @@ import { Label } from "@/components/ui/label"
 
 interface LoginScreenProps {
   onSwitchToSignUp?: () => void
+  onNavigateToHelp?: () => void
 }
 
-export function LoginScreen({ onSwitchToSignUp }: LoginScreenProps) {
+export function LoginScreen({ onSwitchToSignUp, onNavigateToHelp }: LoginScreenProps) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -78,8 +79,17 @@ export function LoginScreen({ onSwitchToSignUp }: LoginScreenProps) {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 p-8">
+      <div className="relative z-10 p-8 flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">FinceptTerminal</h1>
+        <button 
+          onClick={onNavigateToHelp}
+          className="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Help
+        </button>
       </div>
 
       {/* Main Content */}
@@ -185,6 +195,12 @@ export function LoginScreen({ onSwitchToSignUp }: LoginScreenProps) {
           <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
           <a href="#" className="hover:text-zinc-400 transition-colors">Trademarks</a>
           <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
+          <button 
+            onClick={onNavigateToHelp}
+            className="hover:text-zinc-400 transition-colors"
+          >
+            Help Center
+          </button>
         </div>
       </div>
     </div>
